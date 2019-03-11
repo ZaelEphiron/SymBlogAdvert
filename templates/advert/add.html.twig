@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formAdvert 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    
+    <h1>Création d'une annonce !</h1>
+    <hr>
+    {{ form_start(formAdvert) }}
+    
+    {{ form_row(formAdvert.title, {'attr': {'placeholder': "Titre de l'annonce" } }) }}
+    {{ form_row(formAdvert.author, {'attr': {'placeholder': "Auteur de l'annonce"} }) }}
+    {{ form_row(formAdvert.content, {'attr': {'placeholder': "Contenu de l'annonce" } }) }}
+    
+    <button type="submit" class="btn btn-success">
+        {% if editMode %}
+            Enregistrer les modifications
+        {% else %}
+            Ajouter l'annonce
+        {% endif %}
+    </button>
+    {{ form_end(formAdvert)}}
+    
+{% endblock %}
