@@ -9,7 +9,7 @@
             {{ article.content | raw }}
         </div>
     </article>
-    
+    <hr>
     <section id="commentaires">
         <h1>{{ article.comments | length }} commentaires :</h1>
         {% for comment in article.comments %}
@@ -27,8 +27,8 @@
         
         {% if app.user %}
         {{ form_start(commentForm) }}
-        {{ form_row(commentForm.author, {'attr': {'placeholder' : "Votre nom"} }) }}
-        {{ form_row(commentForm.content, {'attr': {'placeholder': "Votre commentaire"} }) }}
+        {{ form_row(commentForm.author, {'label': "Nom de l'auteur :", 'attr': {'placeholder' : "Votre nom"} }) }}
+        {{ form_row(commentForm.content, {'label': "Contenu du commentaire :", 'attr': {'placeholder': "Votre commentaire"} }) }}
         
         <button type="submit" class="btn btn-success">Commenter !</button>
         {{ form_end(commentForm) }}

@@ -2,26 +2,38 @@
 
 {% extends "layout.html.twig" %}
 
-{% block title %}
-  Accueil - {{ parent() }}
-{% endblock %}
+{% block body %}
 
-{% block ocplatform_body %}
-
-  <h2>Liste des annonces</h2>
+  <h1>Liste des annonces :</h1>
+  <hr>
 
   <ul>
     {% for advert in listAdverts %}
       <li>
-        <a href="{{ path('adverts_view', {'id': advert.id}) }}">
-          {{ advert.title }}
-        </a>
-        par {{ advert.author }},
-        le {{ advert.createdAt|date('d/m/Y') }}
+        <div class="card border-primary mb-3" style="max-width: 20rem;">
+          <div class="card-header"><a href={{ path('adverts_view', {'id': advert.id}) }}>
+          {{ advert.title }}</a>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">par {{ advert.author }},</h4>
+            <p class="card-text">le {{ advert.createdAt|date('d/m/Y') }}</p>
+          </div>
+        </div>
       </li>
     {% else %}
-      <li>Pas (encore !) d'annonces</li>
+      <div class="alert alert-dismissible alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Pas d'annonces</h4>
+        <p class="mb-0">Si vous êtes connecté alors vous pouvez en créer une.</p>
+      </div>
     {% endfor %}
   </ul>
+
+  
+  
+  
+    
+    
+
 
 {% endblock %}

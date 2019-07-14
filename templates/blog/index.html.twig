@@ -1,22 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!{% endblock %}
+{% block title %}Bienvenue !{% endblock %}
 
 {% block body %}
+
+<h1>{{ title }}</h1>
+<hr>
 
 <section class="articles">
     
     {% for article in articles %}
     <article>
-        <h2>{{ article.title }}</h2>
-        <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie Infos</div>
-        <div class="content">   
-            <img src="{{ article.image }}" alt="">
-                {{ article.content | raw }}
-            <a href="{{ path('blog_show', {'id': article.id}) }}" class="btn btn-primary">Lire la suite</a>
-            <hr>
-        </div> 
+        <div class = "jumbotron">
+            <h2>{{ article.title }}</h2>
+            <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{article.category.title}}</div>
+            <div class="content">   
+                <img class="rounded mx-auto d-block w-50" src="{{ article.image }}" alt="">
+                    <br>
+                    {{ article.content | raw }}
+                    <br>
+                <a href={{ path('blog_show', {'id': article.id}) }} class="btn btn-primary">Commenter</a>
+                <hr>
+            </div> 
+        </div>
     </article>
+    {% else %}
+    <div class="alert alert-dismissible alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">Pas d'articles</h4>
+        <p class="mb-0">Si vous êtes connecté en tant qu'administrateur alors vous pouvez en créer un.</p>
+    </div>
     {% endfor %}
 
 </section>

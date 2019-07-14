@@ -25,7 +25,8 @@ class BlogController extends Controller
         
         return $this->render('blog/index.html.twig', [
             'controller_name' => 'BlogController',
-            'articles' => $articles
+            'articles' => $articles,
+            'title' => 'Liste des articles :',
         ]);
     }
 
@@ -35,18 +36,8 @@ class BlogController extends Controller
     public function home(){
         
         return $this->render('blog/home.html.twig', [
-                            'title' => 'Présentation du site :',
-                            'subtitle' => 'Bonjour à tous et bienvenue sur ce blog !',
-                            'content' => '
-                            Les articles de ce blog ont pour sujet les métiers de l\'informatique. Ce blog a donc pour but de renseigner ses visiteurs sur ces différents métiers et à donc pour but de répondre aux questions suivantes :
-
-- Quelles sont les études requises pour pouvoir trouver une activité professionnel dans ce domaine ?
-- Quelles sont les différents langages de programmations ou notions à connaître pour exercer ?
-
-De plus, afin de faciliter vos recherches, une plateforme d\'annonces et également disponible dans la barre de navigation du site.
-
-Je vous souhaites à tous une bonne lecture des différents articles et n\'hésitez pas à les commenter !
-'
+                            'title' => 'Présentation du site',
+                            'subtitle' => 'Bonjour à tous et bienvenue sur ce blog !'
         ]);
     }
     

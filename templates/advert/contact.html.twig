@@ -4,15 +4,15 @@
 
 {% block body %}
     
-    <h1>Répondre à une annonce :</h1>
+    <h1>Répondre à une annonce</h1>
     <hr>
     {{ form_start(formContact) }}
     
-    {{ form_row(formContact.firstname, {'attr': {'placeholder': "Votre prénom" } }) }}
-    {{ form_row(formContact.lastname, {'attr': {'placeholder': "Votre nom" } }) }} 
-    {{ form_row(formContact.phone, {'attr': {'placeholder': "Votre numéro de téléphone" } }) }}
-    {{ form_row(formContact.email, {'attr': {'placeholder': "Votre adresse email" } }) }}
-    {{ form_row(formContact.message, {'attr': {'placeholder': "Votre candidature"} }) }}
+    {{ form_row(formContact.firstname, {'label': "Prénom", 'attr': {'placeholder': "Votre prénom" } }) }}
+    {{ form_row(formContact.lastname, {'label': "Nom", 'attr': {'placeholder': "Votre nom" } }) }} 
+    {{ form_row(formContact.phone, {'label': "Numéro de téléphone", 'attr': {'placeholder': "Votre numéro de téléphone" } }) }}
+    {{ form_row(formContact.email, {'label': "Adresse email", 'attr': {'placeholder': "Votre adresse email" } }) }}
+    {{ form_row(formContact.message, {'label': "Votre candidature", 'attr': {'placeholder': "Votre candidature"} }) }}
     
     <button type="submit" class="btn btn-success">
             Envoyer la candidature
