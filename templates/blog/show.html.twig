@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <article>
+    <div class="jumbotron">
         <h2>{{ article.title }}</h2>
         <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{ article.category.title }}</div>
         <div class="content">
-            <img src="{{ article.image }}" alt="">
+            <img class="rounded mx-auto d-block w-25"src="{{ article.image }}" alt="Image de l'article">
+            <br/>
             {{ article.content | raw }}
         </div>
-    </article>
+    </div>
     <hr>
     <section id="commentaires">
         <h1>{{ article.comments | length }} commentaires :</h1>

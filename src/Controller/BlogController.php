@@ -7,6 +7,7 @@ use App\Repository\ArticleRepository;
 use App\Form\ArticleType;
 use App\Entity\Comment;
 use App\Form\CommentType;
+use App\Entity\Category;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +27,7 @@ class BlogController extends Controller
         return $this->render('blog/index.html.twig', [
             'controller_name' => 'BlogController',
             'articles' => $articles,
-            'title' => 'Liste des articles :',
+            'title' => 'Liste des articles',
         ]);
     }
 
